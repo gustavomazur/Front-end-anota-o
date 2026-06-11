@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anotações</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Anotações</h1>
+        </header>
+
+        <div class="toast" id="toast"></div>
+
+        <section class="form-section" aria-label="Formulário de anotações">
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" placeholder="Digite o título" maxlength="255">
+                </div>
+                <div class="input-group">
+                    <label for="anotacao">Anotação</label>
+                    <textarea id="anotacao" placeholder="Digite sua anotação" rows="2"></textarea>
+                </div>
+                <div class="input-group btn-group">
+                    <button id="btnCriar" class="btn btn-primary">Criar</button>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="deletarId">Deletar por ID</label>
+                    <input type="number" id="deletarId" placeholder="ID da anotação" min="1">
+                </div>
+                <div class="input-group btn-group">
+                    <button id="btnDeletar" class="btn btn-danger">Deletar</button>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="iaBusca">Pesquisar com IA</label>
+                    <input type="text" id="iaBusca" placeholder="Faça uma pergunta sobre suas anotações">
+                </div>
+                <div class="input-group btn-group">
+                    <button id="btnIaBusca" class="btn btn-secondary">Pesquisar</button>
+                </div>
+            </div>
+
+            <div id="iaResposta" class="ia-resposta hidden" aria-live="polite"></div>
+        </section>
+
+        <section class="list-section" aria-label="Lista de anotações">
+            <div class="list-header">
+                <h2>Suas Anotações</h2>
+                <span id="totalCount" class="total-count"></span>
+            </div>
+
+            <div class="table-wrapper">
+                <table id="tabelaAnotacoes">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Título</th>
+                            <th>Anotação</th>
+                            <th class="hide-mobile">Criado em</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyAnotacoes"></tbody>
+                </table>
+            </div>
+
+            <div id="listaMobile" class="card-list"></div>
+
+            <div id="emptyState" class="empty-state hidden">
+                <p>Nenhuma anotação encontrada.</p>
+            </div>
+
+            <nav id="paginacao" class="pagination" aria-label="Paginação"></nav>
+        </section>
+    </div>
+
+    <div id="modalEdicao" class="modal-overlay hidden">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+            <div class="modal-header">
+                <h2 id="modalTitulo">Editar Anotação</h2>
+                <button class="modal-close" id="btnFecharModal" aria-label="Fechar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="editId">
+                <div class="input-group">
+                    <label for="editTitulo">Título</label>
+                    <input type="text" id="editTitulo" maxlength="255">
+                </div>
+                <div class="input-group">
+                    <label for="editAnotacao">Anotação</label>
+                    <textarea id="editAnotacao" rows="4"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btnCancelarEdicao" class="btn btn-outline">Cancelar</button>
+                <button id="btnSalvarEdicao" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
