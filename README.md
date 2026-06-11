@@ -43,7 +43,7 @@ A aplicação será aberta em uma nova aba do navegador.
 ### Front-end
 
 * Navegador de sua preferência.
-* Atenção p projeto foi testado apenas no Google Chrome.
+* Atenção o projeto foi testado apenas no Google Chrome.
 
 ### Back-end
 
